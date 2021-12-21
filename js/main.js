@@ -19,8 +19,8 @@ function handleSubmit(event) {
     notes: $entryForm.elements.notes.value
   };
   entry.entryId = data.nextEntryId;
-  data.entries.push(entry);
   data.nextEntryId++;
+  data.entries.unshift(entry);
 }
 
 $urlInputBox.addEventListener('input', handleInput);
