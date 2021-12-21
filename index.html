@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h3 class="header-name column-full">Code Journal</h3>
+          <h3 class="header-name">Code Journal</h3>
         </div>
       </div>
     </div>
@@ -29,11 +29,11 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h1 class="new-entry-h column-full">New Entry</h1>
+          <h1 class="new-entry-h">New Entry</h1>
         </div>
       </div>
 
-      <form data-view="entry-form">
+      <form id="entry-form" data-view="entry-form">
         <div class="row">
           <div class="column-half">
             <img class="column-full img-box" src="images/placeholder-image-square.jpg" alt="journal-image">
@@ -48,11 +48,11 @@
         </div>
         <div class="row">
           <div class="column-full">
-            <label class="column-full box-label">Notes</label>
+            <label class="box-label">Notes</label>
             <textarea class="column-full input-border" id="notes" name="notes" rows="6" required="required"></textarea>
           </div>
           <div class="column-full align-right">
-            <button class="save-button purple-bg">SAVE</button>
+            <button type="submit" class="save-button purple-bg">SAVE</button>
           </div>
         </div>
       </form>
