@@ -39,7 +39,7 @@ body {
 }
 
 .input-border:focus {
-  border: 2px solid #562b81;
+  outline-color: #562b81;
 }
 
 .align-right {
