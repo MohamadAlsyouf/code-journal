@@ -18,10 +18,9 @@ function handleSubmit(event) {
     photoUrl: $entryForm.elements.photoUrl.value,
     notes: $entryForm.elements.notes.value
   };
-  entry.nextEntryId = data.nextEntryId;
+  entry.entryId = data.nextEntryId;
   data.entries.push(entry);
-  // console.log(entry);
-  // console.log(data.entries);
+  data.nextEntryId++;
 }
 
 $urlInputBox.addEventListener('input', handleInput);
