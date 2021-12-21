@@ -5,10 +5,7 @@ var $photoUrl = document.querySelector('.img-box');
 var $entryForm = document.querySelector('#entry-form');
 
 function handleInput(event) {
-  if (event.target.matches('#photoUrl') === true) {
-    $photoUrl.setAttribute('src', $urlInputBox.value);
-    return $photoUrl;
-  }
+  $photoUrl.setAttribute('src', $urlInputBox.value);
 }
 
 function handleSubmit(event) {
