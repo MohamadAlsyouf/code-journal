@@ -22,6 +22,7 @@ function handleSubmit(event) {
   data.nextEntryId++;
   data.entries.unshift(entry);
   $photoUrl.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $entryForm.reset();
 }
 
 $urlInputBox.addEventListener('input', handleInput);
