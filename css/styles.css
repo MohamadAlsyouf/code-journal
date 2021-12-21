@@ -19,7 +19,6 @@ body {
 }
 
 .img-box {
-  /* object-fit: cover; */
   padding: 0;
   border-radius: 5px;
   border: 1px solid #bcbcbc;
