@@ -10,14 +10,54 @@
     crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
+  <header class="purple-bg">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h3 class="header-name column-full">Code Journal</h3>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1 class="new-entry-h column-full">New Entry</h1>
+        </div>
+      </div>
+
+      <form data-view="entry-form">
+        <div class="row">
+          <div class="column-half">
+            <img class="column-full img-box" src="images/placeholder-image-square.jpg" alt="journal-image">
+          </div>
+          <div class="column-half">
+            <label class="box-label">Title</label>
+            <input class="column-full input-border" type="text" name="title" id="title" required="required">
+
+            <label class="box-label">Photo URL</label>
+            <input class="column-full input-border" type="text" name="photoUrl" id="photo-url" required="required">
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label class="column-full box-label">Notes</label>
+            <textarea class="column-full input-border" id="notes" name="notes" rows="10" required="required"></textarea>
+          </div>
+          <div class="column-full align-right">
+            <button class="save-button purple-bg">SAVE</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
