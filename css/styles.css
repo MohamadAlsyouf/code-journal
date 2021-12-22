@@ -10,7 +10,7 @@ body {
 }
 
 .header-name {
-  font-weight: 100;
+  font-weight: 400;
   margin: 10px 0;
 }
 
@@ -62,4 +62,10 @@ body {
 
 .entries-notes {
   font-size: 18px;
+}
+
+.nav-link {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
 }
