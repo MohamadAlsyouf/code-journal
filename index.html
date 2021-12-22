@@ -30,7 +30,7 @@
       <form id="entry-form" data-view="entry-form">
         <div class="row">
           <div class="column-full">
-            <h1 class="new-entry-h">New Entry</h1>
+            <h1>New Entry</h1>
           </div>
         </div>
         <div class="row">
@@ -38,27 +38,61 @@
             <img class="column-full img-box" src="images/placeholder-image-square.jpg" alt="journal-image">
           </div>
           <div class="column-half">
-            <label class="box-label">Title</label>
+            <label class="input-label">Title</label>
             <input class="column-full input-border" type="text" name="title" id="title" required="required">
-            <label class="box-label">Photo URL</label>
+            <label class="input-label">Photo URL</label>
             <input class="column-full input-border" type="text" name="photoUrl" id="photoUrl" required="required">
           </div>
         </div>
         <div class="row">
           <div class="column-full">
-            <label class="box-label">Notes</label>
+            <label class="input-label">Notes</label>
             <textarea class="column-full input-border" id="notes" name="notes" rows="6" required="required"></textarea>
           </div>
-          <div class="column-full align-right">
-            <button type="submit" class="save-button purple-bg">SAVE</button>
+          <div class="column-full align-button">
+            <button type="submit" class="button purple-bg">SAVE</button>
           </div>
         </div>
       </form>
-      <div data-view="entries">
-        <ul>
 
+      <div data-view="entries">
+        <div class="row">
+          <div class="column-full">
+            <div class="row space-between">
+              <h1>Entries</h1>
+              <button class="button purple-bg align-button">NEW</button>
+            </div>
+          </div>
+        </div>
+
+        <ul class="entries-ul">
+          <li class="entries-li">
+            <div class="row">
+              <div class="column-half">
+                <img class="column-full img-box" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrXfxyTUkNwkJRTiqBzCGA882lp6vh7aVrrM6rlyiNp1dEiovb4bayFDCOnTZLyTeB_1g&usqp=CAU" alt="ada-lovelace">
+              </div>
+              <div class="column-half">
+                <h2 class="entries-name">Ada Lovelace</h2>
+                <p class="entries-notes">yoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyo my name is moo how yall doing im making a code journal lol</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="entries-li">
+            <div class="row">
+              <div class="column-half">
+                <img class="column-full img-box" src="https://i1.sndcdn.com/avatars-000673334351-ltb4wd-t240x240.jpg" alt="jeff-jefferson">
+              </div>
+              <div class="column-half">
+                <h2 class="entries-name">Jeff Jefferson</h2>
+                <p class="entries-notes">yoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyo my name is moo how yall doing im making a code
+                  journal lol</p>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
+
     </div>
   </main>
   <script src="js/data.js"></script>
