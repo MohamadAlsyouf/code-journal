@@ -1,0 +1,55 @@
+body {
+  background-color: #f0f0f0;
+  font-family: Mukta, sans-serif;
+  letter-spacing: 00.05rem;
+}
+
+.purple-bg {
+  background-color: #562b81;
+  color: white;
+}
+
+.header-name {
+  font-weight: 100;
+  margin: 10px 0;
+}
+
+.new-entry-h {
+  margin: 10px 0;
+}
+
+.img-box {
+  padding: 0;
+  border-radius: 5px;
+  border: 1px solid #bcbcbc;
+}
+
+.box-label {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.input-border {
+  font-family: Mukta, sans-serif;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #bcbcbc;
+  margin: 10px 0 20px;
+  padding: 10px;
+}
+
+.input-border:focus {
+  outline-color: #562b81;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.save-button {
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+}

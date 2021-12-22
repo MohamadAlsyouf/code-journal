@@ -6,3 +6,14 @@ var data = {
   editing: null,
   nextEntryId: 1
 };
+
+var previousEntry = localStorage.getItem('form-data');
+if (previousEntry !== null) {
+  data = JSON.parse(previousEntry);
+}
+function handleBeforeUnload(event) {
+  var dataJSON = JSON.stringify(data);
+  localStorage.setItem('form-data', dataJSON);
+}
+
+window.addEventListener('beforeunload', handleBeforeUnload);
