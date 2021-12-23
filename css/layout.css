@@ -22,8 +22,7 @@
   justify-content: space-between;
 }
 
-.align-button {
-  align-self: center;
+.align-right {
   text-align: right;
 }
 

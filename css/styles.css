@@ -39,7 +39,6 @@ body {
 }
 
 .button {
-  margin: 10px 0;
   border-radius: 5px;
   border: none;
   padding: 10px 20px;
@@ -68,4 +67,27 @@ body {
   color: white;
   margin-left: 20px;
   text-decoration: none;
+}
+
+.link-new {
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 25px;
+  align-self: center;
+}
+
+.no-entries {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.view {
+  display: contents;
+}
+
+.hidden {
+  display: none;
 }

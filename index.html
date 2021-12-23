@@ -30,7 +30,8 @@
   </header>
   <main>
     <div class="container">
-      <form id="entry-form" data-view="entry-form">
+
+      <form class="view hidden" id="entry-form" data-view="entry-form">
         <div class="row">
           <div class="column-full">
             <h1>New Entry</h1>
@@ -52,22 +53,24 @@
             <label class="input-label">Notes</label>
             <textarea class="column-full input-border" id="notes" name="notes" rows="6" required="required"></textarea>
           </div>
-          <div class="column-full align-button">
-            <button type="submit" class="button purple-bg">SAVE</button>
+          <div class="column-full align-right">
+            <button type="submit" class="button purple-bg" id="save-button">SAVE</button>
           </div>
         </div>
       </form>
-      <div data-view="entries" id="entries">
+
+      <div class="view" data-view="entries" id="entries">
         <div class="row">
           <div class="column-full">
             <div class="row space-between">
               <h1>Entries</h1>
-              <button class="button purple-bg align-button">NEW</button>
+              <a id="new-button" class="purple-bg link-new" href="#entry-form">NEW</a>
             </div>
           </div>
         </div>
         <ul class="entries-ul"></ul>
       </div>
+
     </div>
   </main>
   <script src="js/data.js"></script>
