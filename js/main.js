@@ -69,7 +69,7 @@ function generateEntryDom(entry) {
   return entriesLi;
 }
 
-// appends new DOM tree to the UL
+// appends new entry DOM tree to the UL
 
 function appendDom(entry) {
   swapView(data.view);
@@ -85,13 +85,12 @@ function appendDom(entry) {
 // view swapping functions
 
 function swapView(string) {
-
+  data.view = string;
   for (var i = 0; i < $views.length; i++) {
     if ($views[i].getAttribute('data-view') === string) {
       $views[i].className = 'view';
-      data.view = string;
     } else {
-      $views[i].className = 'view hidden';
+      $views[i].className = 'hidden';
     }
   }
 }

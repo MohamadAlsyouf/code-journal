@@ -30,36 +30,36 @@
   </header>
   <main>
     <div class="container">
-
-      <form class="view hidden" id="entry-form" data-view="entry-form">
-        <div class="row">
-          <div class="column-full">
-            <h1>New Entry</h1>
+      <div class="view hidden" data-view="entry-form">
+        <form id="entry-form">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="column-half">
-            <img class="column-full img-box" src="images/placeholder-image-square.jpg" alt="journal-image">
+          <div class="row">
+            <div class="column-half">
+              <img class="column-full img-box" src="images/placeholder-image-square.jpg" alt="journal-image">
+            </div>
+            <div class="column-half">
+              <label class="input-label">Title</label>
+              <input class="column-full input-border" type="text" name="title" id="title" required="required">
+              <label class="input-label">Photo URL</label>
+              <input class="column-full input-border" type="text" name="photoUrl" id="photoUrl" required="required">
+            </div>
           </div>
-          <div class="column-half">
-            <label class="input-label">Title</label>
-            <input class="column-full input-border" type="text" name="title" id="title" required="required">
-            <label class="input-label">Photo URL</label>
-            <input class="column-full input-border" type="text" name="photoUrl" id="photoUrl" required="required">
+          <div class="row">
+            <div class="column-full">
+              <label class="input-label">Notes</label>
+              <textarea class="column-full input-border" id="notes" name="notes" rows="6" required="required"></textarea>
+            </div>
+            <div class="column-full align-right">
+              <input data-view="entries" type="submit" class="button purple-bg" id="save-button" value="SAVE">
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="column-full">
-            <label class="input-label">Notes</label>
-            <textarea class="column-full input-border" id="notes" name="notes" rows="6" required="required"></textarea>
-          </div>
-          <div class="column-full align-right">
-            <button data-view="entries" type="submit" class="button purple-bg" id="save-button">SAVE</button>
-          </div>
-        </div>
-      </form>
-
-      <div class="view" data-view="entries" id="entries">
+        </form>
+      </div>
+      <div class="view" data-view="entries">
         <div class="row">
           <div class="column-full">
             <div class="row space-between">
