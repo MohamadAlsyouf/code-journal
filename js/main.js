@@ -3,32 +3,39 @@
 var $urlInputBox = document.querySelector('#photoUrl');
 var $photoUrl = document.querySelector('.img-box');
 var $entryForm = document.querySelector('#entry-form');
-var $newButton = document.querySelector('#new-button');
-var $entryFormView = document.querySelector('#entry-form');
-var $entriesView = document.querySelector('#entries');
-var $entriesLink = document.querySelector('.nav-link');
+var $ul = document.querySelector('ul');
+var $noEntriesText = document.querySelector('#no-entries');
+var $views = document.querySelectorAll('.view');
 
-function handleInput(event) {
+// changes default src attribute to new entries photo url value.
+
+function updateImage(event) {
   $photoUrl.setAttribute('src', $urlInputBox.value);
 }
 
+// creates new entries object and handles form submit.
+
 function handleSubmit(event) {
+  event.preventDefault();
   var entry = {
     title: $entryForm.elements.title.value,
     photoUrl: $entryForm.elements.photoUrl.value,
     notes: $entryForm.elements.notes.value
   };
-  event.preventDefault();
   entry.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.unshift(entry);
   $photoUrl.setAttribute('src', 'images/placeholder-image-square.jpg');
   $entryForm.reset();
-  var newEntry = renderEntry(entry);
+  var newEntry = generateEntryDom(entry);
   $ul.prepend(newEntry);
+  $noEntriesText.className = 'hidden';
+  swapView(data.view);
 }
 
-function renderEntry(entry) {
+// creates DOM tree for each new entry
+
+function generateEntryDom(entry) {
   var entriesLi = document.createElement('li');
   entriesLi.setAttribute('class', 'entries-li');
 
@@ -62,38 +69,45 @@ function renderEntry(entry) {
   return entriesLi;
 }
 
-var $ul = document.querySelector('ul');
+// appends new DOM tree to the UL
 
 function appendDom(entry) {
-  if (data.entries.length === 0) {
-    var noEntries = document.createElement('div');
-    noEntries.setAttribute('class', 'column-full center-text no-entries');
-    noEntries.textContent = 'No entries have been recorded.';
-    $ul.appendChild(noEntries);
+  swapView(data.view);
+  if (data.entries.length !== 0) {
+    $noEntriesText.className = 'hidden';
   }
   for (var i = 0; i < data.entries.length; i++) {
-    var returnObject = renderEntry(data.entries[i]);
+    var returnObject = generateEntryDom(data.entries[i]);
     $ul.appendChild(returnObject);
   }
 }
 
 // view swapping functions
-function handleEntriesNavLink(event) {
-  if (event.target === $entriesLink) {
-    $entriesView.className = 'view';
-    $entryFormView.className = 'hidden';
-  }
-}
-$entriesLink.addEventListener('click', handleEntriesNavLink);
 
-function handleNewClick(event) {
-  if (event.target === $newButton) {
-    $entryFormView.className = 'view';
-    $entriesView.className = 'hidden';
+function swapView(string) {
+
+  for (var i = 0; i < $views.length; i++) {
+    if ($views[i].getAttribute('data-view') === string) {
+      $views[i].className = 'view';
+      data.view = string;
+    } else {
+      $views[i].className = 'view hidden';
+    }
   }
 }
-$newButton.addEventListener('click', handleNewClick);
+
+function dataView(event) {
+  var dataViewValue = event.target.getAttribute('data-view');
+  if (dataViewValue === null) {
+    return;
+  }
+  swapView(dataViewValue);
+  if (!data.view) {
+    swapView(dataViewValue);
+  }
+}
+document.addEventListener('click', dataView);
 
 document.addEventListener('DOMContentLoaded', appendDom);
-$urlInputBox.addEventListener('input', handleInput);
+$urlInputBox.addEventListener('input', updateImage);
 $entryForm.addEventListener('submit', handleSubmit);

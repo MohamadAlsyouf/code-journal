@@ -7,6 +7,8 @@ var data = {
   nextEntryId: 1
 };
 
+// new entries are saved to local storage along w rest of data model on reload
+
 var previousEntry = localStorage.getItem('form-data');
 if (previousEntry !== null) {
   data = JSON.parse(previousEntry);
