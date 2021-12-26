@@ -20,40 +20,60 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h3 class="header-name">Code Journal</h3>
+          <div class="row align-nav">
+            <h3 class="header-name">Code Journal</h3>
+            <a data-view="entries" class="nav-link" href="#">Entries</a>
+          </div>
         </div>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <form id="entry-form" data-view="entry-form">
+      <div class="view hidden" data-view="entry-form">
+        <form id="entry-form">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half">
+              <img class="column-full img-box" src="images/placeholder-image-square.jpg" alt="journal-image">
+            </div>
+            <div class="column-half">
+              <label class="input-label">Title</label>
+              <input class="column-full input-border" type="text" name="title" id="title" required="required">
+              <label class="input-label">Photo URL</label>
+              <input class="column-full input-border" type="text" name="photoUrl" id="photoUrl" required="required">
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label class="input-label">Notes</label>
+              <textarea class="column-full input-border" id="notes" name="notes" rows="6" required="required"></textarea>
+            </div>
+            <div class="column-full align-right">
+              <input type="submit" class="button purple-bg save-margin-bottom" value="SAVE">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="view" data-view="entries">
         <div class="row">
           <div class="column-full">
-            <h1 class="new-entry-h">New Entry</h1>
+            <div class="row space-between">
+              <h1>Entries</h1>
+              <button data-view="entry-form" id="new-button" class="purple-bg button">NEW</button>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="column-half">
-            <img class="column-full img-box" src="images/placeholder-image-square.jpg" alt="journal-image">
-          </div>
-          <div class="column-half">
-            <label class="box-label">Title</label>
-            <input class="column-full input-border" type="text" name="title" id="title" required="required">
-            <label class="box-label">Photo URL</label>
-            <input class="column-full input-border" type="text" name="photoUrl" id="photoUrl" required="required">
-          </div>
+        <ul class="entries-ul"></ul>
+        <div id="no-entries" class="column-full no-entries">
+          <p>No entries have been recorded.</p>
         </div>
-        <div class="row">
-          <div class="column-full">
-            <label class="box-label">Notes</label>
-            <textarea class="column-full input-border" id="notes" name="notes" rows="6" required="required"></textarea>
-          </div>
-          <div class="column-full align-right">
-            <button type="submit" class="save-button purple-bg">SAVE</button>
-          </div>
-        </div>
-      </form>
+      </div>
+
     </div>
   </main>
   <script src="js/data.js"></script>

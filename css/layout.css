@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+.view {
+  display: contents;
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
@@ -16,6 +20,22 @@
 .column-full,
 .column-half {
   width: 100%;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-nav {
+  align-items: center;
+}
+
+.save-margin-bottom {
+  margin-bottom: 25px;
 }
 
 @media screen and (min-width: 768px) {

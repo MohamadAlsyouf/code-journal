@@ -10,11 +10,7 @@ body {
 }
 
 .header-name {
-  font-weight: 100;
-  margin: 10px 0;
-}
-
-.new-entry-h {
+  font-weight: 400;
   margin: 10px 0;
 }
 
@@ -24,7 +20,7 @@ body {
   border: 1px solid #bcbcbc;
 }
 
-.box-label {
+.input-label {
   font-weight: bold;
   margin: 10px 0;
 }
@@ -42,14 +38,42 @@ body {
   outline-color: #562b81;
 }
 
-.align-right {
-  text-align: right;
-}
-
-.save-button {
-  margin: 10px 0;
+.button {
   border-radius: 5px;
   border: none;
   padding: 10px 20px;
   font-size: 18px;
+  align-self: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.entries-ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.entries-li {
+  margin-bottom: 40px;
+}
+
+.entries-name {
+  margin: 0;
+}
+
+.entries-notes {
+  font-size: 18px;
+}
+
+.nav-link {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.no-entries {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
 }
