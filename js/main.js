@@ -30,7 +30,7 @@ function handleSubmit(event) {
   var newEntry = generateEntryDom(entry);
   $ul.prepend(newEntry);
   $noEntriesText.className = 'hidden';
-  swapView(data.view);
+  swapView('entries');
 }
 
 // creates DOM tree for each new entry
