@@ -101,9 +101,6 @@ function dataView(event) {
     return;
   }
   swapView(dataViewValue);
-  if (!data.view) {
-    swapView(dataViewValue);
-  }
 }
 document.addEventListener('click', dataView);
 
