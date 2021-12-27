@@ -56,10 +56,18 @@ function generateEntryDom(entry) {
   entriesColumnHalf.setAttribute('class', 'column-half');
   entriesRowDiv.appendChild(entriesColumnHalf);
 
+  var entryNameRow = document.createElement('div');
+  entryNameRow.setAttribute('class', 'row space-between align-center');
+  entriesColumnHalf.appendChild(entryNameRow);
+
   var entriesName = document.createElement('h2');
   entriesName.setAttribute('class', 'entries-name');
   entriesName.textContent = entry.title;
-  entriesColumnHalf.appendChild(entriesName);
+  entryNameRow.appendChild(entriesName);
+
+  var editIcon = document.createElement('i');
+  editIcon.setAttribute('class', 'fas fa-pen edit-icon');
+  entryNameRow.appendChild(editIcon);
 
   var entriesNotes = document.createElement('p');
   entriesNotes.setAttribute('class', 'entries-notes');
