@@ -66,8 +66,10 @@ function generateEntryDom(entry) {
   entriesName.textContent = entry.title;
   entryNameRow.appendChild(entriesName);
 
-  var editIcon = document.createElement('i');
+  var editIcon = document.createElement('a');
   editIcon.setAttribute('class', 'fas fa-pen edit-icon');
+  editIcon.setAttribute('href', '#');
+  editIcon.setAttribute('data-view', 'entry-form');
   entryNameRow.appendChild(editIcon);
 
   var entriesNotes = document.createElement('p');
