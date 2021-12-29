@@ -38,6 +38,7 @@ function handleSubmit(event) {
 function generateEntryDom(entry) {
   var entriesLi = document.createElement('li');
   entriesLi.setAttribute('class', 'entries-li');
+  entriesLi.setAttribute('data-entry-id', entry.entryId);
 
   var entriesRowDiv = document.createElement('div');
   entriesRowDiv.setAttribute('class', 'row');
