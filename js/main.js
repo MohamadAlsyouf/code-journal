@@ -69,6 +69,7 @@ function generateEntryDom(entry) {
   var editIcon = document.createElement('a');
   editIcon.setAttribute('class', 'fas fa-pen edit-icon');
   editIcon.setAttribute('href', '#');
+  editIcon.setAttribute('data-entry-id', entry.entryId);
   entryNameRow.appendChild(editIcon);
 
   var entriesNotes = document.createElement('p');
@@ -118,10 +119,13 @@ function handleEdit(event) {
   if (event.target.matches('.edit-icon')) {
     swapView('entry-form');
   }
+  for (var i = 0; i < data.entries.length; i++) {
+    data.editing = data.entries[i].entryId;
+  }
 }
 
+// event listeners
 $ul.addEventListener('click', handleEdit);
-
 document.addEventListener('click', dataView);
 document.addEventListener('DOMContentLoaded', appendDom);
 $urlInputBox.addEventListener('input', updateImage);
