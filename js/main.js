@@ -121,6 +121,10 @@ function handleEdit(event) {
   }
   for (var i = 0; i < data.entries.length; i++) {
     data.editing = data.entries[i].entryId;
+    $entryForm.elements.title.value = data.entries[i].title;
+    $entryForm.elements.photoUrl.value = data.entries[i].photoUrl;
+    $entryForm.elements.notes.value = data.entries[i].notes;
+    updateImage();
   }
 }
 
