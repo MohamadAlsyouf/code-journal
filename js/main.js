@@ -20,15 +20,32 @@ function handleSubmit(event) {
   var entry = {
     title: $entryForm.elements.title.value,
     photoUrl: $entryForm.elements.photoUrl.value,
-    notes: $entryForm.elements.notes.value
+    notes: $entryForm.elements.notes.value,
+    entryId: data.nextEntryId
   };
-  entry.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(entry);
+  if (data.editing === null) {
+    data.nextEntryId++;
+    data.entries.unshift(entry);
+    var newEntry = generateEntryDom(entry);
+    $ul.prepend(newEntry);
+  }
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing === data.entries[i].entryId) {
+      data.entries[i].title = entry.title;
+      data.entries[i].photoUrl = entry.photoUrl;
+      data.entries[i].notes = entry.notes;
+      updateImage();
+      var editedEntry = generateEntryDom(entry);
+      $ul.children[i].replaceWith(editedEntry);
+      data.editing = null;
+    }
+  }
+  // data.nextEntryId++;
+  // data.entries.unshift(entry);
   $photoUrl.setAttribute('src', 'images/placeholder-image-square.jpg');
   $entryForm.reset();
-  var newEntry = generateEntryDom(entry);
-  $ul.prepend(newEntry);
+  // var newEntry = generateEntryDom(entry);
+  // $ul.prepend(newEntry);
   $noEntriesText.className = 'hidden';
   swapView('entries');
 }
@@ -118,13 +135,17 @@ function dataView(event) {
 function handleEdit(event) {
   if (event.target.matches('.edit-icon')) {
     swapView('entry-form');
-  }
-  for (var i = 0; i < data.entries.length; i++) {
-    data.editing = data.entries[i].entryId;
-    $entryForm.elements.title.value = data.entries[i].title;
-    $entryForm.elements.photoUrl.value = data.entries[i].photoUrl;
-    $entryForm.elements.notes.value = data.entries[i].notes;
-    updateImage();
+    var dataEntryIdNum = parseInt(event.target.getAttribute('data-entry-id'));
+    data.editing = dataEntryIdNum;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing === data.entries[i].entryId) {
+        $entryForm.elements.title.value = data.entries[i].title;
+        $entryForm.elements.photoUrl.value = data.entries[i].photoUrl;
+        $entryForm.elements.notes.value = data.entries[i].notes;
+        updateImage();
+      }
+    }
+    // data.editing = null;
   }
 }
 
