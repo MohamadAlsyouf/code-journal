@@ -6,6 +6,7 @@ var $entryForm = document.querySelector('#entry-form');
 var $ul = document.querySelector('ul');
 var $noEntriesText = document.querySelector('#no-entries');
 var $views = document.querySelectorAll('.view');
+var $editFormHeader = document.querySelector('.entry-form-header');
 
 // changes default src attribute to new entries photo url value.
 
@@ -31,6 +32,7 @@ function handleSubmit(event) {
   }
   for (var i = 0; i < data.entries.length; i++) {
     if (data.editing === data.entries[i].entryId) {
+
       data.entries[i].title = entry.title;
       data.entries[i].photoUrl = entry.photoUrl;
       data.entries[i].notes = entry.notes;
@@ -40,12 +42,8 @@ function handleSubmit(event) {
       data.editing = null;
     }
   }
-  // data.nextEntryId++;
-  // data.entries.unshift(entry);
   $photoUrl.setAttribute('src', 'images/placeholder-image-square.jpg');
   $entryForm.reset();
-  // var newEntry = generateEntryDom(entry);
-  // $ul.prepend(newEntry);
   $noEntriesText.className = 'hidden';
   swapView('entries');
 }
@@ -135,6 +133,7 @@ function dataView(event) {
 function handleEdit(event) {
   if (event.target.matches('.edit-icon')) {
     swapView('entry-form');
+    $editFormHeader.textContent = 'Edit Entry';
     var dataEntryIdNum = parseInt(event.target.getAttribute('data-entry-id'));
     data.editing = dataEntryIdNum;
     for (var i = 0; i < data.entries.length; i++) {
@@ -145,7 +144,6 @@ function handleEdit(event) {
         updateImage();
       }
     }
-    // data.editing = null;
   }
 }
 
