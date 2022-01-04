@@ -9,6 +9,7 @@ var $views = document.querySelectorAll('.view');
 var $entryFormHeader = document.querySelector('.entry-form-header');
 var $delete = document.querySelector('.delete-button');
 var $saveRow = document.querySelector('#save-row');
+var $modal = document.querySelector('#modal');
 
 function updateImage(event) {
   $photoUrl.setAttribute('src', $urlInputBox.value);
@@ -155,7 +156,16 @@ function dataView(event) {
   swapView(dataViewValue);
 }
 
+function handleDelete(event) {
+  if (event.target === $delete) {
+    $modal.className = 'row modal-on';
+  } else {
+    $modal.className = 'row hidden';
+  }
+}
+
 // event listeners
+$delete.addEventListener('click', handleDelete);
 document.addEventListener('click', dataView);
 document.addEventListener('DOMContentLoaded', appendDom);
 $urlInputBox.addEventListener('input', updateImage);

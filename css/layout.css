@@ -34,6 +34,14 @@
   align-items: center;
 }
 
+.modal-header {
+  margin-bottom: 40px;
+}
+
+.modal-padding {
+  padding: 0 20px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
