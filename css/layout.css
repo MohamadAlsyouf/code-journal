@@ -26,16 +26,12 @@
   justify-content: space-between;
 }
 
-.align-right {
-  text-align: right;
+.flex-end {
+  justify-content: flex-end;
 }
 
 .align-center {
   align-items: center;
-}
-
-.save-margin-bottom {
-  margin-bottom: 25px;
 }
 
 @media screen and (min-width: 768px) {

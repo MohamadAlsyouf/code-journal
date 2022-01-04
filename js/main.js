@@ -6,9 +6,9 @@ var $entryForm = document.querySelector('#entry-form');
 var $ul = document.querySelector('ul');
 var $noEntriesText = document.querySelector('#no-entries');
 var $views = document.querySelectorAll('.view');
-var $editFormHeader = document.querySelector('.entry-form-header');
-
-// changes default src attribute to new entries photo url value.
+var $entryFormHeader = document.querySelector('.entry-form-header');
+var $delete = document.querySelector('.delete-button');
+var $saveRow = document.querySelector('#save-row');
 
 function updateImage(event) {
   $photoUrl.setAttribute('src', $urlInputBox.value);
@@ -85,6 +85,7 @@ function generateEntryDom(entry) {
   editIcon.setAttribute('class', 'fas fa-pen edit-icon');
   editIcon.setAttribute('href', '#');
   editIcon.setAttribute('data-entry-id', entry.entryId);
+  editIcon.setAttribute('data-view', 'entry-form');
   entryNameRow.appendChild(editIcon);
 
   var entriesNotes = document.createElement('p');
@@ -112,6 +113,9 @@ function appendDom(entry) {
 
 function swapView(string) {
   data.view = string;
+  if (string === 'entries') {
+    data.editing = null;
+  }
   for (var i = 0; i < $views.length; i++) {
     if ($views[i].getAttribute('data-view') === string) {
       $views[i].className = 'view';
@@ -126,14 +130,11 @@ function dataView(event) {
   if (dataViewValue === null) {
     return;
   }
-  swapView(dataViewValue);
-}
-
-// edit function
-function handleEdit(event) {
-  if (event.target.matches('.edit-icon')) {
-    swapView('entry-form');
-    $editFormHeader.textContent = 'Edit Entry';
+  var entry = event.target.closest('[data-entry-id]');
+  if (entry !== null) {
+    $entryFormHeader.textContent = 'Edit Entry';
+    $delete.className = 'delete-button';
+    $saveRow.className = 'row space-between';
     var dataEntryIdNum = parseInt(event.target.getAttribute('data-entry-id'));
     data.editing = dataEntryIdNum;
     for (var i = 0; i < data.entries.length; i++) {
@@ -144,11 +145,17 @@ function handleEdit(event) {
         updateImage();
       }
     }
+  } else if (dataViewValue === 'entry-form') {
+    $entryForm.reset();
+    $photoUrl.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $entryFormHeader.textContent = 'New Entry';
+    $delete.className = 'hidden';
+    $saveRow.className = 'row flex-end';
   }
+  swapView(dataViewValue);
 }
 
 // event listeners
-$ul.addEventListener('click', handleEdit);
 document.addEventListener('click', dataView);
 document.addEventListener('DOMContentLoaded', appendDom);
 $urlInputBox.addEventListener('input', updateImage);

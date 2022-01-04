@@ -83,3 +83,15 @@ body {
   font-size: 30px;
   text-decoration: none;
 }
+
+.delete-button {
+  border: none;
+  color: rgb(238, 88, 88);
+  text-decoration: underline rgb(238, 88, 88);
+  font-size: 18px;
+}
+
+.delete-button:hover {
+  cursor: pointer;
+  color: red;
+}
