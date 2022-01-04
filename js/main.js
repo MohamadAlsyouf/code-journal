@@ -10,6 +10,7 @@ var $entryFormHeader = document.querySelector('.entry-form-header');
 var $delete = document.querySelector('.delete-button');
 var $saveRow = document.querySelector('#save-row');
 var $modal = document.querySelector('#modal');
+var $cancel = document.querySelector('.cancel-button');
 
 function updateImage(event) {
   $photoUrl.setAttribute('src', $urlInputBox.value);
@@ -164,7 +165,14 @@ function handleDelete(event) {
   }
 }
 
+function handleCancel(event) {
+  if (event.target === $cancel) {
+    $modal.className = 'row hidden';
+  }
+}
+
 // event listeners
+$cancel.addEventListener('click', handleCancel);
 $delete.addEventListener('click', handleDelete);
 document.addEventListener('click', dataView);
 document.addEventListener('DOMContentLoaded', appendDom);
