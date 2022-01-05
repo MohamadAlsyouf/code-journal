@@ -11,6 +11,7 @@ var $delete = document.querySelector('.delete-button');
 var $saveRow = document.querySelector('#save-row');
 var $modal = document.querySelector('#modal');
 var $cancel = document.querySelector('.cancel-button');
+var $confirm = document.querySelector('.confirm-button');
 
 function updateImage(event) {
   $photoUrl.setAttribute('src', $urlInputBox.value);
@@ -127,6 +128,8 @@ function swapView(string) {
   }
 }
 
+// view swapping functions
+
 function dataView(event) {
   var dataViewValue = event.target.getAttribute('data-view');
   if (dataViewValue === null) {
@@ -157,22 +160,40 @@ function dataView(event) {
   swapView(dataViewValue);
 }
 
+// delete functions
+
 function handleDelete(event) {
   if (event.target === $delete) {
     $modal.className = 'row modal-on';
-  } else {
-    $modal.className = 'row hidden';
   }
-}
-
-function handleCancel(event) {
   if (event.target === $cancel) {
     $modal.className = 'row hidden';
   }
 }
 
+function handleModalButtons(event) {
+  if (event.target === $cancel) {
+    $modal.className = 'row hidden';
+  }
+  if (event.target === $confirm) {
+    var entry = data.editing;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (entry === data.entries[i].entryId) {
+        $ul.children[i].remove();
+        data.entries.splice(data.entries[i], 1);
+        entry = null;
+        $modal.className = 'row hidden';
+        swapView('entries');
+        if (data.entries.length === 0) {
+          $noEntriesText.className = 'column-full no-entries';
+        }
+      }
+    }
+  }
+}
+
 // event listeners
-$cancel.addEventListener('click', handleCancel);
+$modal.addEventListener('click', handleModalButtons);
 $delete.addEventListener('click', handleDelete);
 document.addEventListener('click', dataView);
 document.addEventListener('DOMContentLoaded', appendDom);
